@@ -18,8 +18,7 @@ public class Prenotazione {
     @Id
     @Setter(AccessLevel.NONE)
     private UUID id;
-    private String utenteId;
-    private String eventoId;
+
     @ManyToOne
     private Utente utente;
     @ManyToOne

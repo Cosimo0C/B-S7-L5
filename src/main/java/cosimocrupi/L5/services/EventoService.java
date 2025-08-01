@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -22,7 +21,7 @@ public class EventoService {
         this.eventoRepository.findByPlace(payload.place()).ifPresent(evento -> {
             throw new BadRequestException("C'è già un viaggio intestato");
         });
-        Evento newE = new Evento(payload.title(), payload.dateEvent(), payload.place(), payload.sitMax(), payload.prenotazioneId(), payload.organizzatoreId());
+        Evento newE = new Evento(payload.title(), payload.dateEvent(), payload.place(), payload.sitMax());
         Evento saveE = this.eventoRepository.save(newE);
         log.info("Il viaggio con id " + saveE.getId() + " è stato salvato correttamente!");
         return saveE;
@@ -42,8 +41,6 @@ public class EventoService {
         fnd.setDateEvent(payload.dateEvent());
         fnd.setPlace(payload.place());
         fnd.setSitMax(payload.sitMax());
-        fnd.setPrenotazioneId(payload.prenotazioneId());
-        fnd.setOrganizzatoreId(payload.organizzatoreId());
 
         Evento modEve = this.eventoRepository.save(fnd);
         log.info("Il viaggio con id " + fnd.getId() + " è stato modificato correttamente!");

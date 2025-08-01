@@ -26,18 +26,14 @@ public class Evento {
     private LocalDate dateEvent;
     private String place;
     private int sitMax;
-    private String prenotazioneId;
-    private String organizzatoreId;
 
     @ManyToOne
     private Utente organizzatore;
 
-    public Evento(String title, LocalDate dateEvent, String place, int sitMax, String prenotazioneId, String organizzatoreId) {
+    public Evento(String title, LocalDate dateEvent, String place, int sitMax) {
         this.title = title;
         this.dateEvent = dateEvent;
         this.place = place;
         this.sitMax = sitMax;
-        this.prenotazioneId = prenotazioneId;
-        this.organizzatoreId = organizzatoreId;
     }
 }
