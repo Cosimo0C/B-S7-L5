@@ -2,6 +2,7 @@ package cosimocrupi.L5.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -19,4 +20,8 @@ public class Prenotazione {
     private UUID id;
     private String utenteId;
     private String eventoId;
+    @ManyToOne
+    private Utente utente;
+    @ManyToOne
+    private Evento evento;
 }

@@ -15,7 +15,11 @@ public record EventoDTO(
         @NotEmpty(message = "Il luogo è obbligatorio!")
         @Size(min=4, message = "Il luogo deve essere lungo almeno 4 caratteri!")
         String place,
+        @NotEmpty(message = "Il numero massimo di posti è obbligatorio!")
+        int sitMax,
         @NotEmpty(message = "L'organizzatore è obbligatorio!")
-        String organizzatoreId
+        String organizzatoreId,
+        @NotEmpty(message = "L'organizzatore è obbligatorio!")
+        String prenotazioneId
 ) {
 }
